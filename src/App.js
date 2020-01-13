@@ -1,6 +1,7 @@
-import React from 'react';
-import './components/TodoComponents/Todo.css';
-import TodoForm from './components/TodoComponents/TodoForm';
+import React from "react";
+import "./components/TodoComponents/Todo.css";
+import TodoForm from "./components/TodoComponents/TodoForm";
+import TodoList from "./components/TodoComponents/TodoList";
 
 const todos = [];
 class App extends React.Component {
@@ -12,11 +13,10 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todos
-    }
+    };
   }
 
   toggleItem = id => {
-
     const newTodoList = this.state.todoList.map(item => {
       if (item.id === id) {
         return {
@@ -26,11 +26,12 @@ class App extends React.Component {
       } else {
         return item;
       }
-    })
+    });
     this.setState({
       todoList: newTodoList
-    })
-  }
+    });
+    console.log(newTodoList);
+  };
 
   addTodo = todoName => {
     const newTodo = {
@@ -40,18 +41,27 @@ class App extends React.Component {
     };
     this.setState({
       todoList: [...this.state.todoList, newTodo]
+    });
+  };
+
+  clearComplete = () => {
+    console.log("Clear Complete")
+    this.setState({
+      todos: this.state.todoList.filter(item => {
+        return !item.complete;
+      })
     })
-  }
+  };
+
   render() {
     return (
       <div>
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addTodo} />
-      </div>
-      <todoList todos={this.state.todoList}
-      toggleItem={this.toggleItem}
-      />
+        <div>
+          <h2>Welcome to your Todo App!</h2>
+          <TodoForm addTodo={this.addTodo} />
+        </div>
+        <h3>My Todos</h3>
+        <TodoList todos={this.state.todoList} toggleItem={this.toggleItem} clearComplete={this.clearComplete} />
       </div>
     );
   }

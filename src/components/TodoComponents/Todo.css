@@ -3,4 +3,12 @@ h2 {
     
 }
 
+.item {
+    cursor: pointer;
+}
+
+.item.complete {
+    text-decoration: line-through;
+}
+
 
