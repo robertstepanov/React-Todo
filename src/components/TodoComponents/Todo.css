@@ -1,14 +1,51 @@
 h2 {
-    text-align: center;
-    
+  text-align: center;
 }
 
 .item {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .item.complete {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
+input {
+  border: none;
+  border-bottom: 2px solid;
+  padding-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 9rem;
+  background: linen;
+}
 
+.add-btn {
+  border: none;
+  background: none;
+  font-size: 1.5em;
+  padding-top: 0.5em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background: linen;
+  width: 40%;
+  margin: 2rem auto;
+  padding: 3rem 0 6rem;
+  outline-style: solid;
+  outline-color: lightsalmon;
+  outline-offset: 4px;
+  border: 2px solid lightsalmon;
+}
+
+.clear-btn {
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  background: lightsalmon;
+  border: none;
+}
